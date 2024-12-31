@@ -49,10 +49,24 @@ greet('World');
 
 export default function Home() {
   const [markdown, setMarkdown] = useState(initialMarkdown)
+  const [theme, setTheme] = useState('default')
+
+  const ThemeSelector = (
+    <select
+      value={theme}
+      onChange={(e) => setTheme(e.target.value)}
+      className="border rounded-lg p-2">
+      <option value="default">Default Theme</option>
+      <option value="bold">Bold Theme</option>
+    </select>
+  )
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Markdown Editor with Themes</h1>
+      <div className="mb-4">
+        {ThemeSelector}
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <h2 className="text-xl font-semibold mb-2">Editor</h2>
@@ -60,7 +74,7 @@ export default function Home() {
         </div>
         <div>
           <h2 className="text-xl font-semibold mb-2">Preview</h2>
-          <MarkdownPreview markdown={markdown} />
+          <MarkdownPreview markdown={markdown} theme={theme} />
         </div>
       </div>
     </div>

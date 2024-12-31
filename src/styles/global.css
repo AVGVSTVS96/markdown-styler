@@ -21,8 +21,15 @@
 }
 
 @layer markdown {
-  .prose h1 {
-    @apply text-indigo-500 underline decoration-3 underline-offset-4;
+  .reactMarkdown.default { 
+    h1 {
+      @apply text-gray-500 underline decoration-3 underline-offset-4;
+    }
+  }
+  .reactMarkdown.bold {
+    h1 {
+      @apply text-indigo-500 underline decoration-3 underline-offset-4;
+    }
   }
 }
 
