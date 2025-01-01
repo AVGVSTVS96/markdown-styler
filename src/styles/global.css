@@ -1,35 +1,115 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin "@tailwindcss/typography";
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+/* @variant dark (&:where(.dark, .dark *)); */
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
+  /* Default (Light Theme) */
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-zinc-200);
+  }
+
+  /* Dark Theme */
+  @media (prefers-color-scheme: dark) {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+      border-color: var(--color-zinc-700);
+    }
+  }
+
+  :root {
+    scrollbar-color: hsla(0, 0%, 60%, 0.2) transparent;
+    /* scrollbar-width: thin; */
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 60%, 0.2);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(0, 0%, 60%, 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: hsla(0, 0%, 60%, 0.3);
   }
 }
 
 @layer markdown {
-  .reactMarkdown.default { 
-    h1 {
-      @apply text-gray-500 underline decoration-3 underline-offset-4;
+  .reactMarkdown {
+    @layer table {
+      table {
+        @apply text-[1rem];
+      }
+
+      table * {
+        @apply border-0;
+      }
+
+      table + p,
+      table + ul,
+      table + ol {
+        @apply mt-0;
+      }
+
+      table + ol,
+      table + ul {
+        @apply mb-0;
+      }
+
+      table + ol li,
+      table + ul li {
+        @apply mt-0;
+      }
+
+      table:has(+ p),
+      table:has(+ ul) {
+        @apply mb-0;
+      }
     }
   }
+
+  .reactMarkdown.default {
+    h1 {
+      @apply text-gray-400;
+    }
+
+    table + p {
+      @apply pl-4;
+    }
+  }
+
   .reactMarkdown.bold {
     h1 {
-      @apply text-indigo-500 underline decoration-3 underline-offset-4;
+      @apply text-sky-200;
+      /* @apply underline decoration-2 underline-offset-4; */
+    }
+
+    table + p {
+      @apply relative pl-4 border-l-2 border-sky-300;
+    }
+
+    table + ol li,
+    table + ul li {
+      @apply marker:text-sky-300;
     }
   }
 }
-
