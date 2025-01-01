@@ -5,23 +5,16 @@
 /* @variant dark (&:where(.dark, .dark *)); */
 
 @layer base {
-  /* Default (Light Theme) */
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-zinc-200);
-  }
-
-  /* Dark Theme */
-  @media (prefers-color-scheme: dark) {
-    *,
-    ::after,
-    ::before,
-    ::backdrop,
-    ::file-selector-button {
-      border-color: var(--color-zinc-700);
+    @media (prefers-color-scheme: dark) {
+      & {
+        border-color: var(--color-zinc-700);
+      }
     }
   }
 
@@ -55,61 +48,61 @@
 
 @layer markdown {
   .reactMarkdown {
-    @layer table {
-      table {
-        @apply text-[1rem];
-      }
+    table {
+      @apply text-[1rem];
 
-      table * {
+      & * {
         @apply border-0;
       }
 
-      table + p,
-      table + ul,
-      table + ol {
+      & + p,
+      & + ul,
+      & + ol {
         @apply mt-0;
       }
 
-      table + ol,
-      table + ul {
+      & + ol,
+      & + ul {
         @apply mb-0;
       }
 
-      table + ol li,
-      table + ul li {
+      & + ol li,
+      & + ul li {
         @apply mt-0;
       }
 
-      table:has(+ p),
-      table:has(+ ul) {
+      &:has(+ p),
+      &:has(+ ul) {
         @apply mb-0;
       }
     }
-  }
 
-  .reactMarkdown.default {
-    h1 {
-      @apply text-gray-400;
+    &.default {
+      h1 {
+        @apply text-gray-600 dark:text-gray-400;
+      }
+
+      table + p {
+        @apply pl-4;
+      }
     }
 
-    table + p {
-      @apply pl-4;
-    }
-  }
+    &.bold {
+      h1 {
+        @apply text-sky-400 dark:text-sky-200;
+        /* @apply underline decoration-2 underline-offset-4; */
+      }
 
-  .reactMarkdown.bold {
-    h1 {
-      @apply text-sky-200;
-      /* @apply underline decoration-2 underline-offset-4; */
-    }
+      table {
+        & + p {
+          @apply relative pl-4 border-l-2 border-sky-300;
+        }
 
-    table + p {
-      @apply relative pl-4 border-l-2 border-sky-300;
-    }
-
-    table + ol li,
-    table + ul li {
-      @apply marker:text-sky-300;
+        & + ol li,
+        & + ul li {
+          @apply marker:text-sky-300;
+        }
+      }
     }
   }
 }
