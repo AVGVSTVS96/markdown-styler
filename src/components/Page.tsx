@@ -11,8 +11,8 @@ An enthusiastic software engineer, this is a paragraph with **bold** and *italic
 | - | -: |
 | **Large Tech Company** | Aug '20 to Present | 
 
-- here is a friendly list item
-- this is another list item
+- Here is a list item of something great I did at this company
+- This is another list item of another thing I did at this company
 
 
 |  |  |
@@ -20,6 +20,15 @@ An enthusiastic software engineer, this is a paragraph with **bold** and *italic
 | **Small Tech Company** | May '19 to March '20 | 
 
 This is a paragraph with **bold** and *italic* text. It also has a [link](https://www.google.com). This is a good way to test out the editor, and it's also a good way to test out the preview.
+
+|  |  |
+| - | -: |
+| **Small Business** | January '16 to October '18 | 
+
+This is a paragraph with **bold** and *italic* text. It also has a [link](https://www.google.com). This is a good way to test out the editor, and it's also a good way to test out the preview.
+
+---
+---
 
 # Markdown Test
 This is a paragraph with **bold** and *italic* text. It also has a [link](https://www.google.com). This is a good way to test out the editor, and it's also a good way to test out the preview.
