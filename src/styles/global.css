@@ -104,5 +104,26 @@
         }
       }
     }
+@media print {
+  /* Hide everything */
+  body * {
+    visibility: hidden;
+  }
+
+  /* But show the print area */
+  #printArea,
+  #printArea * {
+    visibility: visible;
+  }
+
+  /* Force the print area to appear at the top-left */
+  #printArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* optional: remove height restrictions for printing */
+    height: auto;
+    overflow: visible;
   }
 }

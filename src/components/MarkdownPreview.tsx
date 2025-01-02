@@ -14,7 +14,7 @@ export default function MarkdownPreview({
     <div
       className={`p-4 border rounded-lg overflow-auto h-[400px] lg:h-[600px]`}
     >
-      <div className="prose prose-zinc dark:prose-invert">
+      <div id="printArea" className="prose prose-zinc dark:prose-invert">
         <ReactMarkdown
           remarkPlugins={[gfm]}
           className={`reactMarkdown ${theme}`}

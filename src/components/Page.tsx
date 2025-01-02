@@ -97,9 +97,12 @@ export default function Home() {
     >
       <option value="default">Default Theme</option>
       <option value="bold">Bold Theme</option>
+      <option value="formal">Formal Theme</option>
     </select>
   );
-
+  function handlePrint() {
+    window.print();
+  }
   return (
     <div className="p-8">
       <section className="mx-auto">
@@ -110,10 +113,19 @@ export default function Home() {
           <div className="mb-4">{ThemeSelector}</div>
           <div>
             <h2 className="text-xl font-semibold mb-2">Editor</h2>
+
             <MarkdownInput value={markdown} onChange={setMarkdown} />
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-2">Preview</h2>
+            <span className="flex justify-between align-middle">
+              <h2 className="text-xl font-semibold mb-2">Preview</h2>
+              <button
+                className="px-2 mb-1.5 rounded-lg border"
+                onClick={handlePrint}
+              >
+                Print or Save as PDF
+              </button>
+            </span>
             <MarkdownPreview markdown={markdown} theme={theme} />
           </div>
         </div>
