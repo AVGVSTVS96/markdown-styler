@@ -103,7 +103,43 @@
           @apply marker:text-sky-300;
         }
       }
+
+      blockquote {
+        @apply border-l-4 border-sky-300 pl-4 italic;
+      }
+
+      & :not(pre) code {
+        @apply bg-sky-50 dark:bg-sky-900 text-sky-600 dark:text-sky-200 px-1 rounded;
+      }
     }
+
+    &.formal {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @apply font-serif text-black dark:text-white;
+      }
+
+      p,
+      ul,
+      ol {
+        @apply text-gray-800 dark:text-gray-200;
+      }
+
+      blockquote {
+        @apply border-l-4 border-gray-500 dark:border-gray-300 pl-4 italic;
+      }
+
+      & :not(pre) code {
+        @apply bg-gray-100 dark:bg-gray-700 px-1 rounded;
+      }
+    }
+  }
+}
+
 @media print {
   /* Hide everything */
   body * {
@@ -116,13 +152,11 @@
     visibility: visible;
   }
 
-  /* Force the print area to appear at the top-left */
   #printArea {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    /* optional: remove height restrictions for printing */
     height: auto;
     overflow: visible;
   }
