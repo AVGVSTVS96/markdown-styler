@@ -1,0 +1,23 @@
+h1 {
+  @apply text-sky-400 dark:text-sky-200;
+  /* @apply underline decoration-2 underline-offset-4; */
+}
+
+table {
+  &+p {
+    @apply relative pl-4 border-l-2 border-sky-300;
+  }
+
+  &+ol li,
+  &+ul li {
+    @apply marker:text-sky-300;
+  }
+}
+
+blockquote {
+  @apply border-l-4 border-sky-300 pl-4 italic;
+}
+
+& :not(pre) code {
+  @apply bg-sky-50 dark:bg-sky-900 text-sky-600 dark:text-sky-200 px-1 rounded;
+}

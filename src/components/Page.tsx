@@ -98,6 +98,7 @@ export default function Home() {
       <option value="default">Default Theme</option>
       <option value="bold">Bold Theme</option>
       <option value="formal">Formal Theme</option>
+      <option value="github markdown-body not-prose">GitHub Theme</option>
     </select>
   );
   function handlePrint() {

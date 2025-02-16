@@ -11,6 +11,7 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-zinc-200);
+
     @media (prefers-color-scheme: dark) {
       & {
         border-color: var(--color-zinc-700);
@@ -48,26 +49,26 @@
 
 @layer markdown {
   .reactMarkdown {
-    table {
+    &:not(.github) table {
       @apply text-[1rem];
 
       & * {
         @apply border-0;
       }
 
-      & + p,
-      & + ul,
-      & + ol {
+      &+p,
+      &+ul,
+      &+ol {
         @apply mt-0;
       }
 
-      & + ol,
-      & + ul {
+      &+ol,
+      &+ul {
         @apply mb-0;
       }
 
-      & + ol li,
-      & + ul li {
+      &+ol li,
+      &+ul li {
         @apply mt-0;
       }
 
@@ -78,69 +79,28 @@
     }
 
     &.default {
-      h1 {
-        @apply text-gray-600 dark:text-gray-400;
-      }
-
-      table + p {
-        @apply pl-4;
-      }
+      @import './default-theme.css';
     }
 
     &.bold {
-      h1 {
-        @apply text-sky-400 dark:text-sky-200;
-        /* @apply underline decoration-2 underline-offset-4; */
-      }
-
-      table {
-        & + p {
-          @apply relative pl-4 border-l-2 border-sky-300;
-        }
-
-        & + ol li,
-        & + ul li {
-          @apply marker:text-sky-300;
-        }
-      }
-
-      blockquote {
-        @apply border-l-4 border-sky-300 pl-4 italic;
-      }
-
-      & :not(pre) code {
-        @apply bg-sky-50 dark:bg-sky-900 text-sky-600 dark:text-sky-200 px-1 rounded;
-      }
+      @import './bold-theme.css';
     }
 
     &.formal {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        @apply font-serif text-black dark:text-white;
-      }
+      @import './formal-theme.css';
+    }
 
-      p,
-      ul,
-      ol {
-        @apply text-gray-800 dark:text-gray-200;
-      }
-
-      blockquote {
-        @apply border-l-4 border-gray-500 dark:border-gray-300 pl-4 italic;
-      }
-
-      & :not(pre) code {
-        @apply bg-gray-100 dark:bg-gray-700 px-1 rounded;
-      }
+    &.github {
+      @import './github-theme.css';
     }
   }
 }
 
 @media print {
+  .github {
+    color: black;
+  }
+
   /* Hide everything */
   body * {
     visibility: hidden;
